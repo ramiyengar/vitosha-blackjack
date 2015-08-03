@@ -10,5 +10,25 @@
     <string name="deck_label">Deck:</string>
     <string name="title_activity_splash">Vitosha Blackjack</string>
     <string name="redirect_activity_is_missing_message">Redirect activity is missing!</string>
+    <string name="load_100_credit_option">Load 100 Credit</string>
+    <string name="title_activity_inner_banner">Advertisement</string>
+    <string name="title_activity_help">Help</string>
+    <string name="title_activity_about">About</string>
+    <string name="help_option">Help</string>
+    <string name="about_option">About</string>
+    <string name="update_player_option">Update Player</string>
+    <string name="help_text">"  Blackjack, also known as twenty-one, is the most widely played casino banking game in the world. 
+\n  The usage is very simple. Load credit, do bet and make your choice (hit/double/stand).
+\n  Have fun!"</string>
+    <string name="about_text">"  Vitosha Blackjack is published by Velbazhd Software LLC.
+\n  The game is written by David Winter as Java Swing university project and is extended by Todor Balabanov as Android application. 
+\n  Newer versions can be checked at: 
+\n  http://github.com/TodorBalabanov/vitosha-blackjack"</string>
+    <string name="title_activity_update_player">Update Player</string>
+    <string name="update_details_button_label">Update Details</string>
+    <string name="male_option">Male</string>
+    <string name="female_option">Female</string>
+    <string name="name_label">Name:</string>
+    <string name="age_label">Age:</string>
 
 </resources>
