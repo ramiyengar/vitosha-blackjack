@@ -1,5 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_name">Vitosha Blackjack</string>
+    <string name="title_activity_game">Vitosha Blackjack</string>
+    <string name="deal_button_label">Deal</string>
+    <string name="hit_button_label">Hit</string>
+    <string name="double_button_label">Double</string>
+    <string name="stand_button_label">Stand</string>
+    <string name="deck_label">Deck:</string>
 
 </resources>
