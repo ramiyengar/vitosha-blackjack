@@ -76,9 +76,12 @@ public class Player extends BlackjackPlayer implements Serializable
         
         if (bet <= (getWallet() + getBet()))
         {
-            this.wallet += this.bet; // reset old bet
-            this.bet = bet; // set new bet
-            this.wallet -= bet; // update wallet
+        	// reset old bet
+            this.wallet += this.bet;
+         // set new bet
+            this.bet = bet; 
+         // update wallet
+            this.wallet -= bet; 
             betMade = true;
         }
         

@@ -27,11 +27,14 @@ public class PlayerCardHand extends CardHand
             {
                 for (Card eachCard : this)
                 {
-                    eachCard.getFace().switchAce(); // switch ace to low 1 switching...
+                		// switch ace to low 1 switching...
+                    eachCard.getFace().switchAce(); 
                     
-                    if (!isBust()) // if hand isn't bust anymore, then stop switching
+                    // if hand isn't bust anymore, then stop switching
+                    if (!isBust())
                     {
-                        break; // needed to break out of loop to stop switching aces
+                    		// needed to break out of loop to stop switching aces
+                        break; 
                     }
                 }
             }
