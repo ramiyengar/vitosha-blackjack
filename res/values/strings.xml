@@ -8,5 +8,7 @@
     <string name="double_button_label">Double</string>
     <string name="stand_button_label">Stand</string>
     <string name="deck_label">Deck:</string>
+    <string name="title_activity_splash">Vitosha Blackjack</string>
+    <string name="redirect_activity_is_missing_message">Redirect activity is missing!</string>
 
 </resources>
