@@ -1,4 +1,4 @@
-package eu.veldsoft.vitosha.blackjack.cards;
+package eu.veldsoft.vitosha.blackjack;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author David Winter
  */
-public class Deck extends Stack<Card> {
+class Deck extends Stack<Card> {
 	/**
 	 * The number of Card Packs used for this Deck.
 	 */

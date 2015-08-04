@@ -1,11 +1,11 @@
-package eu.veldsoft.vitosha.blackjack.cards;
+package eu.veldsoft.vitosha.blackjack;
 
 /**
  * Class to represent the face value of a Card.
  *
  * @author David Winter
  */
-public class Face {
+class Face {
 	/**
 	 * String representation of the face value.
 	 */

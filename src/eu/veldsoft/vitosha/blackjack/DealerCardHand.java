@@ -1,11 +1,11 @@
-package eu.veldsoft.vitosha.blackjack.cards;
+package eu.veldsoft.vitosha.blackjack;
 
 /**
  * Class that represents a single hand of cards for a player.
  *
  * @author David Winter
  */
-public class DealerCardHand extends CardHand {
+class DealerCardHand extends CardHand {
 	/**
 	 * Default constructor that creates a new Card Hand and sets its total to 0.
 	 */

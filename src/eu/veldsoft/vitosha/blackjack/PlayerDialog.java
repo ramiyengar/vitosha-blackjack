@@ -1,13 +1,11 @@
 package eu.veldsoft.vitosha.blackjack;
 import javax.swing.*;
 
-import eu.veldsoft.vitosha.blackjack.players.Player;
-
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class PlayerDialog extends JDialog implements ActionListener {
+class PlayerDialog extends JDialog implements ActionListener {
 	String name;
 	int age;
 	String gender;

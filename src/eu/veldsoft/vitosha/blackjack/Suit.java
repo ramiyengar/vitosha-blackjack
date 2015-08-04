@@ -1,11 +1,11 @@
-package eu.veldsoft.vitosha.blackjack.cards;
+package eu.veldsoft.vitosha.blackjack;
 
 /**
  * Class to represent a card Suit.
  *
  * @author David Winter
  */
-public class Suit {
+class Suit {
 	/**
 	 * Name of the Suit.
 	 */

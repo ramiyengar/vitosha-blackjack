@@ -1,6 +1,6 @@
-package eu.veldsoft.vitosha.blackjack.cards;
+package eu.veldsoft.vitosha.blackjack;
 
-public class PlayerCardHand extends CardHand {
+class PlayerCardHand extends CardHand {
 	public PlayerCardHand() {
 		super();
 	}

@@ -1,8 +1,4 @@
-package eu.veldsoft.vitosha.blackjack.players;
-
-import eu.veldsoft.vitosha.blackjack.cards.DealerCardHand;
-import eu.veldsoft.vitosha.blackjack.cards.Deck;
-import eu.veldsoft.vitosha.blackjack.cards.PlayerCardHand;
+package eu.veldsoft.vitosha.blackjack;
 
 /**
  * Class representing the Dealer of a Blackjack game. Dealer must stand on 17 or
@@ -10,7 +6,7 @@ import eu.veldsoft.vitosha.blackjack.cards.PlayerCardHand;
  *
  * @author David Winter
  */
-public class Dealer extends BlackjackPlayer {
+class Dealer extends BlackjackPlayer {
 	/**
 	 * The Deck of cards used for the game. The Dealer is in complete control of
 	 * the Deck.

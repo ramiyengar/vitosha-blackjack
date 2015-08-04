@@ -9,7 +9,7 @@ import java.awt.event.*;
  *
  * @author David Winter
  */
-public class AppWindow extends JFrame implements ActionListener,
+class AppWindow extends JFrame implements ActionListener,
 		ComponentListener {
 	private GamePanel gamePanel;
 	private Color defaultTableColour = new Color(6, 120, 0);
@@ -149,15 +149,15 @@ public class AppWindow extends JFrame implements ActionListener,
 		String act = evt.getActionCommand();
 
 		if (act.equals("$1")) {
-			gamePanel.increaseBet(1);
+			gamePanel.getGame().increaseBet(1);
 		} else if (act.equals("$5")) {
-			gamePanel.increaseBet(5);
+			gamePanel.getGame().increaseBet(5);
 		} else if (act.equals("$10")) {
-			gamePanel.increaseBet(10);
+			gamePanel.getGame().increaseBet(10);
 		} else if (act.equals("$25")) {
-			gamePanel.increaseBet(25);
+			gamePanel.getGame().increaseBet(25);
 		} else if (act.equals("$100")) {
-			gamePanel.increaseBet(100);
+			gamePanel.getGame().increaseBet(100);
 		} else if (act.equals("Deal")) {
 			gamePanel.newGame();
 		} else if (act.equals("Hit")) {

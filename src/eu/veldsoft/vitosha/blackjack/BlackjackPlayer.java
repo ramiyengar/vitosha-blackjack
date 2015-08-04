@@ -1,6 +1,6 @@
-package eu.veldsoft.vitosha.blackjack.players;
+package eu.veldsoft.vitosha.blackjack;
 
-import java.io.*;
+import java.io.Serializable;
 
 /**
  * Class that represents a general Blackjack player. Including the Dealer. The
@@ -9,7 +9,7 @@ import java.io.*;
  *
  * @author David Winter
  */
-public class BlackjackPlayer implements Serializable {
+class BlackjackPlayer implements Serializable {
 	/**
 	 * Name of Blackjack player.
 	 */

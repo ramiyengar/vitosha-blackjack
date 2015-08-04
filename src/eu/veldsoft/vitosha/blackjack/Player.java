@@ -1,15 +1,13 @@
-package eu.veldsoft.vitosha.blackjack.players;
+package eu.veldsoft.vitosha.blackjack;
 
-import java.io.*;
-
-import eu.veldsoft.vitosha.blackjack.cards.PlayerCardHand;
+import java.io.Serializable;
 
 /**
  * Class that represents a normal Blackjack player.
  *
  * @author David Winter
  */
-public class Player extends BlackjackPlayer implements Serializable {
+class Player extends BlackjackPlayer implements Serializable {
 	/**
 	 * The card hand the player holds.
 	 */
@@ -41,6 +39,11 @@ public class Player extends BlackjackPlayer implements Serializable {
 	 */
 	public Player(String name, int age, String gender) {
 		super(name, age, gender);
+	}
+
+	public Player(String name, int age, String gender, double amount) {
+		this(name, age, gender);
+		setWallet(amount);
 	}
 
 	/**

@@ -2,7 +2,7 @@ package eu.veldsoft.vitosha.blackjack;
 import java.io.File;
 import javax.swing.filechooser.*;
 
-public class SimpleFileFilter extends FileFilter {
+class SimpleFileFilter extends FileFilter {
 	private String extension = "";
 	private String description = "";
 

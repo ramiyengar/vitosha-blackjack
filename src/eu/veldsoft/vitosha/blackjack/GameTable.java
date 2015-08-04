@@ -1,15 +1,10 @@
 package eu.veldsoft.vitosha.blackjack;
 import javax.swing.*;
 
-import eu.veldsoft.vitosha.blackjack.cards.Card;
-import eu.veldsoft.vitosha.blackjack.cards.CardPack;
-import eu.veldsoft.vitosha.blackjack.cards.DealerCardHand;
-import eu.veldsoft.vitosha.blackjack.cards.PlayerCardHand;
-
 import java.awt.*;
 import java.net.URL;
 
-public class GameTable extends JPanel {
+class GameTable extends JPanel {
 	private DealerCardHand dealer;
 	private PlayerCardHand player;
 

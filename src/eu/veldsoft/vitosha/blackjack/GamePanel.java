@@ -1,18 +1,14 @@
 package eu.veldsoft.vitosha.blackjack;
-import javax.swing.*;
 
-import eu.veldsoft.vitosha.blackjack.cards.PlayerCardHand;
-import eu.veldsoft.vitosha.blackjack.players.Dealer;
-import eu.veldsoft.vitosha.blackjack.players.Player;
+import javax.swing.*;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.io.*;
 
-public class GamePanel extends JPanel implements ActionListener {
-	private Dealer dealer;
-	private Player player;
+class GamePanel extends JPanel implements ActionListener {
+	private Game game;
 
 	private GameTable table;
 
@@ -98,11 +94,13 @@ public class GamePanel extends JPanel implements ActionListener {
 		add25Chip.setToolTipText("Add a $25 chip to your current bet.");
 		add100Chip.setToolTipText("Add a $100 chip to your current bet.");
 
-		dealer = new Dealer();
-		player = new Player("James Bond", 32, "Male");
-		player.setWallet(100.00);
+		game = new Game(new Dealer(), new Player("James Bond", 32, "Male", 100));
 
 		updateValues();
+	}
+
+	public Game getGame() {
+		return game;
 	}
 
 	public void actionPerformed(ActionEvent evt) {
@@ -118,7 +116,7 @@ public class GamePanel extends JPanel implements ActionListener {
 			stand();
 		} else if (act.equals("1") || act.equals("5") || act.equals("10")
 				|| act.equals("25") || act.equals("100")) {
-			increaseBet(Integer.parseInt(act));
+			game.increaseBet(Integer.parseInt(act));
 		} else if (act.equals("Clear")) {
 			System.out.println("clear bet");
 			clearBet();
@@ -128,36 +126,32 @@ public class GamePanel extends JPanel implements ActionListener {
 	}
 
 	public void newGame() {
-		dealer.deal(player);
+		game.getDealer().deal(game.getPlayer());
 	}
 
 	public void hit() {
-		dealer.hit(player);
+		game.getDealer().hit(game.getPlayer());
 	}
 
 	public void playDouble() {
-		dealer.playDouble(player);
+		game.getDealer().playDouble(game.getPlayer());
 	}
 
 	public void stand() {
-		dealer.stand(player);
-	}
-
-	public void increaseBet(int amount) {
-		dealer.acceptBetFrom(player, amount + player.getBet());
+		game.getDealer().stand(game.getPlayer());
 	}
 
 	public void clearBet() {
-		player.clearBet();
+		game.getPlayer().clearBet();
 	}
 
 	public void updateValues() {
 		dealerSays
 				.setText("<html><p align=\"center\"><font face=\"Serif\" color=\"white\" style=\"font-size: 20pt\">"
-						+ dealer.says() + "</font></p></html>");
+						+ game.getDealer().says() + "</font></p></html>");
 
-		if (dealer.isGameOver()) {
-			if (player.betPlaced() && !player.isBankrupt()) {
+		if (game.getDealer().isGameOver()) {
+			if (game.getPlayer().betPlaced() && !game.getPlayer().isBankrupt()) {
 				newGameButton.setEnabled(true);
 			} else {
 				newGameButton.setEnabled(false);
@@ -166,37 +160,37 @@ public class GamePanel extends JPanel implements ActionListener {
 			doubleButton.setEnabled(false);
 			standButton.setEnabled(false);
 
-			if (player.betPlaced()) {
+			if (game.getPlayer().betPlaced()) {
 				clearBet.setEnabled(true);
 			} else {
 				clearBet.setEnabled(false);
 			}
 
-			if (player.getWallet() >= 1.0) {
+			if (game.getPlayer().getWallet() >= 1.0) {
 				add1Chip.setEnabled(true);
 			} else {
 				add1Chip.setEnabled(false);
 			}
 
-			if (player.getWallet() >= 5) {
+			if (game.getPlayer().getWallet() >= 5) {
 				add5Chip.setEnabled(true);
 			} else {
 				add5Chip.setEnabled(false);
 			}
 
-			if (player.getWallet() >= 10) {
+			if (game.getPlayer().getWallet() >= 10) {
 				add10Chip.setEnabled(true);
 			} else {
 				add10Chip.setEnabled(false);
 			}
 
-			if (player.getWallet() >= 25) {
+			if (game.getPlayer().getWallet() >= 25) {
 				add25Chip.setEnabled(true);
 			} else {
 				add25Chip.setEnabled(false);
 			}
 
-			if (player.getWallet() >= 100) {
+			if (game.getPlayer().getWallet() >= 100) {
 				add100Chip.setEnabled(true);
 			} else {
 				add100Chip.setEnabled(false);
@@ -204,7 +198,7 @@ public class GamePanel extends JPanel implements ActionListener {
 		} else {
 			newGameButton.setEnabled(false);
 			hitButton.setEnabled(true);
-			if (dealer.canPlayerDouble(player)) {
+			if (game.getDealer().canPlayerDouble(game.getPlayer())) {
 				doubleButton.setEnabled(true);
 			} else {
 				doubleButton.setEnabled(false);
@@ -221,21 +215,24 @@ public class GamePanel extends JPanel implements ActionListener {
 		}
 
 		// redraw cards and totals
-		table.update(dealer.getHand(), player.getHand(),
-				(dealer.areCardsFaceUp()) ? true : false);
-		table.setNames(dealer.getName(), player.getName());
+		table.update(game.getDealer().getHand(), game.getPlayer().getHand(),
+				(game.getDealer().areCardsFaceUp()) ? true : false);
+		table.setNames(game.getDealer().getName(), game.getPlayer().getName());
 		table.repaint();
 
-		cardsLeft.setText("Deck: " + dealer.cardsLeftInPack() + "/"
-				+ (dealer.CARD_PACKS * eu.veldsoft.vitosha.blackjack.cards.CardPack.CARDS_IN_PACK));
+		cardsLeft
+				.setText("Deck: "
+						+ game.getDealer().cardsLeftInPack()
+						+ "/"
+						+ (game.getDealer().CARD_PACKS * eu.veldsoft.vitosha.blackjack.CardPack.CARDS_IN_PACK));
 
-		if (player.isBankrupt()) {
+		if (game.getPlayer().isBankrupt()) {
 			moreFunds();
 		}
 
 		// redraw bet
-		currentBet.setText(Double.toString(player.getBet()));
-		playerWallet.setText(Double.toString(player.getWallet()));
+		currentBet.setText(Double.toString(game.getPlayer().getBet()));
+		playerWallet.setText(Double.toString(game.getPlayer().getWallet()));
 	}
 
 	private void moreFunds() {
@@ -246,13 +243,13 @@ public class GamePanel extends JPanel implements ActionListener {
 						"Out of funds", JOptionPane.YES_NO_OPTION);
 
 		if (response == JOptionPane.YES_OPTION) {
-			player.setWallet(100.00);
+			game.getPlayer().setWallet(100.00);
 			updateValues();
 		}
 	}
 
 	public void savePlayer() {
-		if (dealer.isGameOver()) {
+		if (game.getDealer().isGameOver()) {
 			JFileChooser playerSaveDialog = new JFileChooser("~");
 			SimpleFileFilter fileFilter = new SimpleFileFilter(".ser",
 					"(.ser) Serialised Files");
@@ -266,7 +263,7 @@ public class GamePanel extends JPanel implements ActionListener {
 				try {
 					ObjectOutputStream playerOut = new ObjectOutputStream(
 							new FileOutputStream(filePath));
-					playerOut.writeObject(player);
+					playerOut.writeObject(game.getPlayer());
 					playerOut.close();
 				} catch (IOException e) {
 					System.out.println(e);
@@ -281,7 +278,7 @@ public class GamePanel extends JPanel implements ActionListener {
 	}
 
 	public void openPlayer() {
-		if (dealer.isGameOver()) {
+		if (game.getDealer().isGameOver()) {
 			JFileChooser playerOpenDialog = new JFileChooser("~");
 			SimpleFileFilter fileFilter = new SimpleFileFilter(".ser",
 					"(.ser) Serialised Files");
@@ -297,7 +294,7 @@ public class GamePanel extends JPanel implements ActionListener {
 							new FileInputStream(filePath));
 					Player openedPlayer = (Player) playerIn.readObject();
 					openedPlayer.hand = new PlayerCardHand();
-					player = openedPlayer;
+					game.setPlayer(openedPlayer);
 					playerIn.close();
 					System.out.println(openedPlayer.getName());
 				} catch (ClassNotFoundException e) {
@@ -317,9 +314,9 @@ public class GamePanel extends JPanel implements ActionListener {
 
 	public void updatePlayer() {
 		PlayerDialog playerDetails = new PlayerDialog(null, "Player Details",
-				true, player);
+				true, game.getPlayer());
 		playerDetails.setVisible(true);
 
-		player = playerDetails.getPlayer();
+		game.setPlayer(playerDetails.getPlayer());
 	}
 }

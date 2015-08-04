@@ -12,7 +12,7 @@ import java.awt.*;
  * as SpringBox and SpringCompactGrid.
  * http://java.sun.com/docs/books/tutorial/uiswing/layout/spring.html
  */
-public class SpringUtilities {
+class SpringUtilities {
 	/**
 	 * A debugging utility that prints to stdout the component's minimum,
 	 * preferred, and maximum sizes.

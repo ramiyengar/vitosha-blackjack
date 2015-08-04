@@ -1,11 +1,11 @@
-package eu.veldsoft.vitosha.blackjack.cards;
+package eu.veldsoft.vitosha.blackjack;
 
 /**
  * Class to represent a playing Card.
  *
  * @author David Winter
  */
-public class Card {
+class Card {
 	/**
 	 * Suit value of Card.
 	 */

@@ -1,4 +1,4 @@
-package eu.veldsoft.vitosha.blackjack.cards;
+package eu.veldsoft.vitosha.blackjack;
 
 import java.util.*;
 
@@ -7,7 +7,7 @@ import java.util.*;
  *
  * @author David Winter
  */
-public abstract class CardHand extends Vector<Card> {
+abstract class CardHand extends Vector<Card> {
 	/**
 	 * Default constructor that creates a new Card Hand and sets its total to 0.
 	 */
