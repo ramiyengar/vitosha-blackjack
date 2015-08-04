@@ -159,13 +159,13 @@ class AppWindow extends JFrame implements ActionListener,
 		} else if (act.equals("$100")) {
 			gamePanel.getGame().increaseBet(100);
 		} else if (act.equals("Deal")) {
-			gamePanel.newGame();
+			gamePanel.getGame().newGame();
 		} else if (act.equals("Hit")) {
-			gamePanel.hit();
+			gamePanel.getGame().hit();
 		} else if (act.equals("Double")) {
-			gamePanel.playDouble();
+			gamePanel.getGame().playDouble();
 		} else if (act.equals("Stand")) {
-			gamePanel.stand();
+			gamePanel.getGame().stand();
 		} else if (act.equals("Update Player Details")) {
 			gamePanel.updatePlayer();
 		} else if (act.equals("Save Current Player")) {

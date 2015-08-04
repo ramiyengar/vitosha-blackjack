@@ -1,18 +1,16 @@
 package eu.veldsoft.vitosha.blackjack;
+
 import javax.swing.*;
 
 import java.awt.*;
 import java.net.URL;
 
 class GameTable extends JPanel {
-	private DealerCardHand dealer;
-	private PlayerCardHand player;
-
-	private boolean showAllDealerCards;
+	private Table table = null;
 
 	// drawing position vars
-	private final int CARD_INCREMENT = 20;
-	private final int CARD_START = 100;
+	public final int CARD_INCREMENT = 20;
+	public final int CARD_START = 100;
 	private final int DEALER_POSITION = 50;
 	private final int PLAYER_POSITION = 200;
 
@@ -33,13 +31,15 @@ class GameTable extends JPanel {
 	public GameTable() {
 		super();
 
+		table = new Table();
+
 		this.setBackground(Color.BLUE);
 		this.setOpaque(false);
 
 		handTotalFont = new Font("Serif", Font.PLAIN, 96);
 		playerNameFont = new Font("Serif", Font.ITALIC, 20);
 
-		showAllDealerCards = true;
+		table.setShowAllDealerCards(true);
 
 		for (int i = 0; i < CardPack.CARDS_IN_PACK; i++) {
 			String cardName = "/drawable-mdpi/card" + ((i < 9) ? "0" : "")
@@ -77,9 +77,7 @@ class GameTable extends JPanel {
 
 	public void update(DealerCardHand dealer, PlayerCardHand player,
 			boolean showDealer) {
-		this.dealer = dealer;
-		this.player = player;
-		this.showAllDealerCards = showDealer;
+		table.updateAll(dealer, player, showDealer);
 	}
 
 	// draw images from jar archive or dir:
@@ -103,19 +101,19 @@ class GameTable extends JPanel {
 
 		int i = CARD_START;
 
-		if (showAllDealerCards) {
-			for (Card aCard : dealer) {
+		if (table.isShowAllDealerCards() == true) {
+			for (Card aCard : table.getDealer()) {
 				g.drawImage(cardImages[aCard.getCode() - 1], i,
 						DEALER_POSITION, this);
 
 				i += CARD_INCREMENT;
 			}
 
-			g.drawString(Integer.toString(dealer.getTotal()), i
+			g.drawString(Integer.toString(table.getDealer().getTotal()), i
 					+ CARD_IMAGE_WIDTH + CARD_INCREMENT, DEALER_POSITION
 					+ CARD_IMAGE_HEIGHT);
 		} else {
-			for (Card aCard : dealer) {
+			for (Card aCard : table.getDealer()) {
 				g.drawImage(cardImages[CardPack.CARDS_IN_PACK], i,
 						DEALER_POSITION, this);
 
@@ -123,15 +121,12 @@ class GameTable extends JPanel {
 			}
 
 			try {
-				Card topCard = dealer.lastElement();
+				Card topCard = table.getDealer().lastElement();
 
 				i -= CARD_INCREMENT;
 
 				g.drawImage(cardImages[topCard.getCode() - 1], i,
 						DEALER_POSITION, this);
-
-				//
-
 			} catch (Exception e) {
 				// caused when trying to draw cards from empty vector
 				// can't use NoSuchElementException above...?
@@ -147,14 +142,14 @@ class GameTable extends JPanel {
 
 		i = CARD_START;
 
-		for (Card aCard : player) {
+		for (Card aCard : table.getPlayer()) {
 			g.drawImage(cardImages[aCard.getCode() - 1], i, PLAYER_POSITION,
 					this);
 
 			i += CARD_INCREMENT;
 		}
 
-		g.drawString(Integer.toString(player.getTotal()), i + CARD_IMAGE_WIDTH
+		g.drawString(Integer.toString(table.getPlayer().getTotal()), i + CARD_IMAGE_WIDTH
 				+ CARD_INCREMENT, PLAYER_POSITION + CARD_IMAGE_HEIGHT);
 	}
 }

@@ -47,7 +47,7 @@
             android:id="@+id/available_cards_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="000" />
+            android:text="" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -58,7 +58,7 @@
             android:id="@+id/total_cards_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="000" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -74,19 +74,19 @@
             android:id="@+id/clear_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clear" />
+            android:text="@string/clear_button_label" />
 
         <TextView
             android:id="@+id/bet_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="000" />
+            android:text="" />
 
         <TextView
             android:id="@+id/balance_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="000" />
+            android:text="" />
     </LinearLayout>
 
     <LinearLayout
@@ -102,31 +102,31 @@
             android:id="@+id/one_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1" />
+            android:text="@string/one_button_label" />
 
         <Button
             android:id="@+id/five_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="5" />
+            android:text="@string/five_button_label" />
 
         <Button
             android:id="@+id/ten_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="10" />
+            android:text="@string/ten_button_label" />
 
         <Button
             android:id="@+id/twenty_five_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="25" />
+            android:text="@string/twenty_five_button_label" />
 
         <Button
             android:id="@+id/one_hundred_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="100" />
+            android:text="@string/one_hundred_button_label" />
     </LinearLayout>
 
     <TextView
@@ -134,12 +134,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentLeft="true"
         android:layout_marginBottom="60dp"
-        android:layout_marginRight="280dp"
-        android:text="Message Bar"
+        android:layout_marginLeft="5dp"
+        android:text=""
         android:textColor="@color/text_color" />
-    
+
     <TextView
         android:id="@+id/player_1_name_text"
         android:layout_width="wrap_content"
@@ -148,11 +148,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="200dp"
         android:layout_marginTop="15dp"
-        android:text="Player 1"
+        android:text=""
         android:textColor="@color/text_color"
         android:textSize="15sp"
         android:textStyle="italic" />
-    
+
     <TextView
         android:id="@+id/player_1_score_text"
         android:layout_width="wrap_content"
@@ -161,10 +161,10 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="200dp"
         android:layout_marginTop="20dp"
-        android:text="00"
+        android:text=""
         android:textColor="@color/text_color"
         android:textSize="60sp" />
-    
+
     <TextView
         android:id="@+id/player_2_name_text"
         android:layout_width="wrap_content"
@@ -173,11 +173,11 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="200dp"
         android:layout_marginTop="95dp"
-        android:text="Player 2"
+        android:text=""
         android:textColor="@color/text_color"
         android:textSize="15sp"
         android:textStyle="italic" />
-    
+
     <TextView
         android:id="@+id/player_2_score_text"
         android:layout_width="wrap_content"
@@ -186,7 +186,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginRight="200dp"
         android:layout_marginTop="100dp"
-        android:text="00"
+        android:text=""
         android:textColor="@color/text_color"
         android:textSize="60sp" />
 
@@ -200,8 +200,7 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card01" />
+        android:scaleType="fitXY" />
 
     <ImageView
         android:id="@+id/player1card2"
@@ -213,9 +212,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card02" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player1card3"
         android:layout_width="wrap_content"
@@ -226,9 +224,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card03" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player1card4"
         android:layout_width="wrap_content"
@@ -239,9 +236,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card04" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player1card5"
         android:layout_width="wrap_content"
@@ -252,9 +248,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card05" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player1card6"
         android:layout_width="wrap_content"
@@ -265,9 +260,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card06" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player1card7"
         android:layout_width="wrap_content"
@@ -278,9 +272,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card07" />
-        
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player1card8"
         android:layout_width="wrap_content"
@@ -291,9 +284,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card08" />
-     
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player1card9"
         android:layout_width="wrap_content"
@@ -304,9 +296,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card09" />
-        
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player1card10"
         android:layout_width="wrap_content"
@@ -317,9 +308,8 @@
         android:layout_marginTop="5dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card10" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card1"
         android:layout_width="wrap_content"
@@ -330,9 +320,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card02" />
- 
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card2"
         android:layout_width="wrap_content"
@@ -343,9 +332,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card02" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card3"
         android:layout_width="wrap_content"
@@ -356,9 +344,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card03" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card4"
         android:layout_width="wrap_content"
@@ -369,9 +356,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card04" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card5"
         android:layout_width="wrap_content"
@@ -382,9 +368,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card05" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card6"
         android:layout_width="wrap_content"
@@ -395,9 +380,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card06" />
-    
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card7"
         android:layout_width="wrap_content"
@@ -408,9 +392,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card07" />
-        
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card8"
         android:layout_width="wrap_content"
@@ -421,9 +404,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card08" />
-     
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card9"
         android:layout_width="wrap_content"
@@ -434,9 +416,8 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card09" />
-        
+        android:scaleType="fitXY" />
+
     <ImageView
         android:id="@+id/player2card10"
         android:layout_width="wrap_content"
@@ -447,7 +428,6 @@
         android:layout_marginTop="85dp"
         android:adjustViewBounds="true"
         android:maxHeight="80dp"
-        android:scaleType="fitXY"
-        android:src="@drawable/card10" />
-    
+        android:scaleType="fitXY" />
+
 </RelativeLayout>

@@ -103,46 +103,27 @@ class GamePanel extends JPanel implements ActionListener {
 		return game;
 	}
 
+	@Override
 	public void actionPerformed(ActionEvent evt) {
 		String act = evt.getActionCommand();
 
 		if (act.equals("Deal")) {
-			newGame();
+			game.newGame();
 		} else if (act.equals("Hit")) {
-			hit();
+			game.hit();
 		} else if (act.equals("Double")) {
-			playDouble();
+			game.playDouble();
 		} else if (act.equals("Stand")) {
-			stand();
+			game.stand();
 		} else if (act.equals("1") || act.equals("5") || act.equals("10")
 				|| act.equals("25") || act.equals("100")) {
 			game.increaseBet(Integer.parseInt(act));
 		} else if (act.equals("Clear")) {
 			System.out.println("clear bet");
-			clearBet();
+			game.clearBet();
 		}
 
 		updateValues();
-	}
-
-	public void newGame() {
-		game.getDealer().deal(game.getPlayer());
-	}
-
-	public void hit() {
-		game.getDealer().hit(game.getPlayer());
-	}
-
-	public void playDouble() {
-		game.getDealer().playDouble(game.getPlayer());
-	}
-
-	public void stand() {
-		game.getDealer().stand(game.getPlayer());
-	}
-
-	public void clearBet() {
-		game.getPlayer().clearBet();
 	}
 
 	public void updateValues() {
@@ -224,7 +205,7 @@ class GamePanel extends JPanel implements ActionListener {
 				.setText("Deck: "
 						+ game.getDealer().cardsLeftInPack()
 						+ "/"
-						+ (game.getDealer().CARD_PACKS * eu.veldsoft.vitosha.blackjack.CardPack.CARDS_IN_PACK));
+						+ (game.getDealer().CARD_PACKS * CardPack.CARDS_IN_PACK));
 
 		if (game.getPlayer().isBankrupt()) {
 			moreFunds();

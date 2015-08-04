@@ -8,7 +8,7 @@ class Game {
 		this.dealer = dealer;
 		this.player = player;
 	}
-	
+
 	public Dealer getDealer() {
 		return dealer;
 	}
@@ -27,5 +27,25 @@ class Game {
 
 	public void increaseBet(int amount) {
 		dealer.acceptBetFrom(player, amount + player.getBet());
+	}
+
+	public void clearBet() {
+		player.clearBet();
+	}
+
+	public void newGame() {
+		dealer.deal(player);
+	}
+
+	public void hit() {
+		dealer.hit(player);
+	}
+
+	public void stand() {
+		dealer.stand(player);
+	}
+
+	public void playDouble() {
+		dealer.playDouble(player);
 	}
 }

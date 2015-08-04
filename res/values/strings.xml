@@ -30,5 +30,11 @@
     <string name="female_option">Female</string>
     <string name="name_label">Name:</string>
     <string name="age_label">Age:</string>
+    <string name="clear_button_label">Clear</string>
+    <string name="one_button_label">1</string>
+    <string name="five_button_label">5</string>
+    <string name="ten_button_label">10</string>
+    <string name="twenty_five_button_label">25</string>
+    <string name="one_hundred_button_label">100</string>
 
 </resources>
