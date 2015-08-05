@@ -9,8 +9,8 @@ class GameTable extends JPanel {
 	private Table table = null;
 
 	// drawing position vars
-	public final int CARD_INCREMENT = 20;
-	public final int CARD_START = 100;
+	private final int CARD_INCREMENT = 20;
+	private final int CARD_START = 100;
 	private final int DEALER_POSITION = 50;
 	private final int PLAYER_POSITION = 200;
 

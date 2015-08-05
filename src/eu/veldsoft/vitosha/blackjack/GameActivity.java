@@ -226,6 +226,33 @@ public class GameActivity extends Activity {
 					}
 				});
 
+		((Button) findViewById(R.id.hit_button))
+				.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						game.hit();
+						updateViews();
+					}
+				});
+
+		((Button) findViewById(R.id.double_button))
+				.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						game.playDouble();
+						updateViews();
+					}
+				});
+
+		((Button) findViewById(R.id.stand_button))
+				.setOnClickListener(new OnClickListener() {
+					@Override
+					public void onClick(View v) {
+						game.stand();
+						updateViews();
+					}
+				});
+
 		updateViews();
 	}
 
@@ -240,7 +267,8 @@ public class GameActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.credit100:
-			// TODO Add 100 to player's credit.
+			game.getPlayer().setWallet(100 + game.getPlayer().getWallet());
+			updateViews();
 			startActivity(new Intent(this, InnerBannerActivity.class));
 			break;
 		case R.id.update_player:
